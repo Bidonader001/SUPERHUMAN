@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+data
+data/*.json
+data/uploads
+.env
+.env.local
+*.log
+.vercel
+WhatsApp Image*.jpeg
