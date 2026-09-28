@@ -1,38 +1,32 @@
 import Link from "next/link";
 import { Ticker } from "@/components/Chrome";
+import { HeroReel, PhotoMarquee } from "@/components/Motion";
 import { programs } from "@/lib/programs";
 import { instagramHref, site, whatsappHref } from "@/lib/site";
 
 const audience = [
-  "People who want fat loss without becoming weak",
-  "People who want muscle and athletic performance",
-  "Runners who need strength",
-  "Lifters who need endurance",
-  "Swimmers and open-water athletes",
-  "HYROX and hybrid competitors",
-  "Athletes preparing for sport",
-  "Beginners seeking structure",
-  "Advanced athletes seeking professional programming",
-  "Women seeking lower-body development and complete fitness",
+  { t: "Fat loss", s: "Stay strong" },
+  { t: "Muscle", s: "Stay athletic" },
+  { t: "HYROX", s: "Race ready" },
+  { t: "Swimming", s: "Open water" },
+  { t: "Running", s: "Add strength" },
+  { t: "Women", s: "BTA + fitness" },
 ];
 
 const pillars = ["Strength", "Endurance", "Athleticism", "Discipline", "Longevity"];
 
 const journey = [
-  { n: "01", title: "Find My Program", href: "/quiz" },
-  { n: "02", title: "Program Details", href: "/programs" },
-  { n: "03", title: "Application", href: "/start" },
-  { n: "04", title: "Approval", href: "/start" },
-  { n: "05", title: "Payment", href: "/payment" },
-  { n: "06", title: "Verification", href: "/payment" },
-  { n: "07", title: "Onboarding", href: "/process" },
-  { n: "08", title: "Program Access", href: "/programs" },
+  { n: "01", title: "Find", href: "/quiz" },
+  { n: "02", title: "Apply", href: "/start" },
+  { n: "03", title: "Pay", href: "/payment" },
+  { n: "04", title: "Train", href: "/process" },
 ];
 
 export default function HomePage() {
   return (
     <>
-      <section className="hero hero-plain">
+      <section className="hero">
+        <HeroReel />
         <div className="wrap hero-content">
           <p className="kicker">Omar Zoromba</p>
           <Ticker />
@@ -41,13 +35,10 @@ export default function HomePage() {
             <br />
             Become Superhuman.
           </h1>
-          <p className="lead">
-            A complete performance system built to transform your strength, endurance, athletic ability, health,
-            discipline, and confidence.
-          </p>
-          <p className="silver">All Superhuman programs · {site.prices.label} / 12 weeks</p>
+          <p className="lead">12-week performance programs. One price. One decision: which program fits you.</p>
+          <p className="silver">{site.prices.label} / 12 weeks</p>
           <div className="chips">
-            {["Hybrid", "Running", "Swimming", "HYROX", "Strength", "Sport"].map((x) => (
+            {["Hybrid", "HYROX", "Swim", "Run", "Strength"].map((x) => (
               <span className="chip" key={x}>
                 {x}
               </span>
@@ -67,27 +58,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      <PhotoMarquee />
+
       <section className="section">
         <div className="wrap split">
           <div>
-            <p className="kicker">Identity</p>
-            <h2>This is not just a workout plan</h2>
-            <p>
-              Superhuman is a complete performance philosophy created for people who refuse to remain average. Every
-              program combines intelligent training, structured progression, coaching support, accountability, and
-              real-world athletic development — all under one price.
-            </p>
-            <p>
-              You are not choosing between service tiers. You are choosing which Superhuman program fits you.
-            </p>
+            <p className="kicker">The system</p>
+            <h2>Train complete. Not random.</h2>
+            <p>Strength, endurance, and discipline in one Superhuman block. Every program is {site.prices.label} for 12 weeks.</p>
             <div className="pillars">
               {pillars.map((p) => (
                 <span key={p}>{p}</span>
               ))}
             </div>
           </div>
-          <div className="photo-frame tall">
-            <img className="photo" src="/images/omar-session-plate.jpg" alt="Omar Zoromba coaching a Superhuman strength session" />
+          <div className="photo-frame tall ken">
+            <img className="photo" src="/images/omar-head-coach.jpg" alt="Omar Zoromba, Superhuman head coach" />
             <span className="badge">Head Coach</span>
           </div>
         </div>
@@ -95,42 +81,37 @@ export default function HomePage() {
 
       <section className="section section-dark">
         <div className="wrap">
-          <p className="kicker">Audience</p>
-          <h2>Built for every level. Never built for mediocrity.</h2>
-          <ul className="quiet-list">
+          <p className="kicker">Who it is for</p>
+          <h2>Every level. Zero average.</h2>
+          <div className="grid-3 audience-grid">
             {audience.map((item) => (
-              <li key={item}>{item}</li>
+              <article className="card" key={item.t}>
+                <h3>{item.t}</h3>
+                <p className="muted">{item.s}</p>
+              </article>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
       <section className="section">
         <div className="wrap split">
-          <div className="photo-frame tall">
+          <div className="photo-frame tall ken">
             <img className="photo" src="/images/omar-founder-medal.jpg" alt="Omar Zoromba after winning Oceanman as overall winner" />
           </div>
           <div>
             <p className="kicker">Founder</p>
-            <h2>Meet Omar Zoromba</h2>
+            <h2>Omar Zoromba</h2>
             <p>
-              Omar Zoromba is an Egyptian hybrid athlete, performance coach, and the creator of the Superhuman
-              Program. His background combines elite finswimming, open-water competition, running, strength, Olympic
-              lifting, weighted calisthenics, HYROX, and sports-performance coaching.
-            </p>
-            <p>
-              Omar does not coach people only to look fit. He coaches them to become physically capable, mentally
-              disciplined, and prepared for life.
+              Hybrid athlete. HYROX coach. International finswimmer. He builds people who can perform — not just look
+              trained.
             </p>
             <div className="btn-row">
               <Link className="btn btn-solid" href="/about">
-                Train With Omar
+                The story
               </Link>
-              <Link className="btn" href="/programs">
-                Explore Programs
-              </Link>
-              <a className="btn btn-ghost" href={instagramHref(site.instagramPersonal)} target="_blank" rel="noreferrer">
-                Follow on Instagram
+              <a className="btn" href={instagramHref(site.instagramPersonal)} target="_blank" rel="noreferrer">
+                Instagram
               </a>
             </div>
           </div>
@@ -140,16 +121,15 @@ export default function HomePage() {
       <section className="section section-dark">
         <div className="wrap">
           <p className="kicker">Programs</p>
-          <h2>All Superhuman programs · {site.prices.label} / 12 weeks</h2>
+          <h2>{site.prices.label} · 12 weeks</h2>
           <div className="grid-3">
-            {programs.map((p) => (
-              <article className="card" key={p.slug}>
-                <div className="photo-frame" style={{ minHeight: 220, marginBottom: "1.1rem" }}>
+            {programs.slice(0, 6).map((p) => (
+              <article className="card program-tile" key={p.slug}>
+                <div className="photo-frame" style={{ minHeight: 240, marginBottom: "1rem" }}>
                   <img className="photo" src={p.image} alt="" />
                 </div>
                 <h3>{p.shortName}</h3>
-                <p>{p.duration} · {p.level}</p>
-                <p className="muted">{p.price} / 12 weeks</p>
+                <p className="muted">{p.level}</p>
                 <Link className="btn btn-ghost" href={`/programs/${p.slug}`}>
                   Select Program
                 </Link>
@@ -161,7 +141,7 @@ export default function HomePage() {
               Find My Program
             </Link>
             <Link className="btn" href="/programs">
-              Explore Programs
+              All programs
             </Link>
           </div>
         </div>
@@ -169,13 +149,9 @@ export default function HomePage() {
 
       <section className="section">
         <div className="wrap">
-          <p className="kicker">How joining works</p>
-          <h2>One path in</h2>
-          <p>
-            Homepage → Find My Program → Program Details → Application → Approval → Payment → Verification →
-            Onboarding → Program Access.
-          </p>
-          <div className="grid-4" style={{ marginTop: "1.4rem" }}>
+          <p className="kicker">Path in</p>
+          <h2>Four moves</h2>
+          <div className="grid-4" style={{ marginTop: "1.2rem" }}>
             {journey.map((s) => (
               <Link className="card" href={s.href} key={s.n}>
                 <p className="muted">{s.n}</p>
@@ -183,30 +159,20 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
-          <div className="btn-row" style={{ marginTop: "1.5rem" }}>
-            <Link className="btn" href="/process">
-              See the full process
-            </Link>
-          </div>
         </div>
       </section>
 
       <section className="section section-dark">
         <div className="wrap split">
-          <div className="grid-2">
-            <div className="photo-frame"><img className="photo" src="/images/omar-plank-session.jpg" alt="Omar coaching a Superhuman gym session" /></div>
-            <div className="photo-frame"><img className="photo" src="/images/omar-hyrox-run.jpg" alt="Omar racing HYROX" /></div>
-            <div className="photo-frame"><img className="photo" src="/images/omar-pullup.jpg" alt="Omar performing a pull-up" /></div>
-            <div className="photo-frame"><img className="photo" src="/images/omar-first-place.jpg" alt="Omar on the Superhuman first-place podium" /></div>
+          <div className="film-stack">
+            <div className="photo-frame ken"><img className="photo" src="/images/omar-plank-session.jpg" alt="Omar coaching a Superhuman gym session" /></div>
+            <div className="photo-frame ken"><img className="photo" src="/images/omar-hyrox-run.jpg" alt="Omar racing HYROX" /></div>
+            <div className="photo-frame ken"><img className="photo" src="/images/omar-first-place.jpg" alt="Omar on the Superhuman first-place podium" /></div>
           </div>
           <div>
             <p className="kicker">Start</p>
-            <h2>Begin your transformation</h2>
-            <p>
-              Find the program that fits you, submit your application, complete InstaPay after approval, and wait for
-              verification before access is granted. Superhuman will never ask for your InstaPay password, OTP, card
-              PIN, or banking login.
-            </p>
+            <h2>Your 12 weeks begin here.</h2>
+            <p>Find the program. Apply. Pay on InstaPay after approval. Train.</p>
             <div className="btn-row">
               <Link className="btn btn-solid" href="/quiz">
                 Find My Program
@@ -214,9 +180,6 @@ export default function HomePage() {
               <a className="btn" href={whatsappHref()} target="_blank" rel="noreferrer">
                 Talk to Coach Omar
               </a>
-              <Link className="btn btn-ghost" href="/knowledge">
-                Join the Superhuman Community
-              </Link>
             </div>
           </div>
         </div>

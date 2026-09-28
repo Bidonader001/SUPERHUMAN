@@ -15,8 +15,10 @@ export function Header() {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    document.body.classList.toggle("menu-open", open);
     return () => {
       document.body.style.overflow = "";
+      document.body.classList.remove("menu-open");
     };
   }, [open]);
 
@@ -37,20 +39,35 @@ export function Header() {
             Find My Program
           </Link>
         </nav>
-        <button className="menu-btn" type="button" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
-          {open ? "Close" : "Menu"}
+        <button
+          className={`menu-btn ${open ? "is-open" : ""}`}
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-label={open ? "Close menu" : "Open menu"}
+        >
+          <span className="hamburger" aria-hidden="true">
+            <i />
+            <i />
+            <i />
+          </span>
         </button>
       </div>
-      <div className={`mobile-menu ${open ? "open" : ""}`}>
+      <div className={`mobile-menu ${open ? "open" : ""}`} id="mobile-nav">
         <div className="wrap mobile-menu-inner">
-        {nav.map((item) => (
-          <Link key={item.href} href={item.href}>
-            {item.label}
-          </Link>
-        ))}
-        <Link href="/quiz" className="btn btn-solid">
-          Find My Program
-        </Link>
+          {nav.map((item) => (
+            <Link key={item.href} href={item.href} className={pathname === item.href ? "active" : ""}>
+              {item.label}
+            </Link>
+          ))}
+          <div className="mobile-menu-cta">
+            <Link href="/quiz" className="btn btn-solid">
+              Find My Program
+            </Link>
+            <a className="btn" href={whatsappHref()} target="_blank" rel="noreferrer">
+              Talk to Coach Omar
+            </a>
+          </div>
         </div>
       </div>
     </header>
@@ -69,8 +86,12 @@ export function Footer() {
           <p style={{ marginTop: "1rem" }}>
             Building stronger, faster, fitter, and more capable humans through structured performance training.
           </p>
-          <small>Created by Omar Zoromba</small>
           <small>© {site.year} Superhuman Program. All rights reserved.</small>
+          <small>
+            <a href="https://www.instagram.com/codai_eg/" target="_blank" rel="noreferrer">
+              Developed by CODAI
+            </a>
+          </small>
         </div>
         <div>
           <h3 className="silver">Explore</h3>
@@ -147,10 +168,7 @@ export function CookieNotice() {
 
   return (
     <div className="cookie">
-      <p>
-        Superhuman uses essential cookies to run forms and remember your cookie choice. Optional analytics and Meta
-        Pixel can be added later without collecting medical details in public tracking.
-      </p>
+      <p>Essential cookies only — used to run forms and remember this choice.</p>
       <button
         className="btn"
         type="button"

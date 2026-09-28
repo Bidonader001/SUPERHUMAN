@@ -290,7 +290,7 @@ export const programs: Program[] = [
     description:
       "Build strict and weighted pull-ups, dips, muscle-ups, handstand push-ups, and pistol squats while developing sprint ability and 5K / 10K performance.",
     cta: "Run Fast. Move Strong.",
-    image: "/images/omar-run-mountains.jpg",
+    image: "/images/omar-body-recomp.jpg",
     price: PRICE,
     priceNote: PRICE_NOTE,
     suitable: [
@@ -364,7 +364,7 @@ export const programs: Program[] = [
     description:
       "A respectful, high-performance lower-body and complete-fitness system for women. The focus is strength, shape, and capability — never shame-based body messaging.",
     cta: "Build Your Strongest Body",
-    image: "/images/omar-coach-smile.jpg",
+    image: "/images/omar-head-coach.jpg",
     price: PRICE,
     priceNote: PRICE_NOTE,
     suitable: [
@@ -644,7 +644,7 @@ export const programs: Program[] = [
     description:
       "A complete Superhuman system for changing how you look and perform: build muscle, drop fat, and keep strength. Training is organized so you do not starve your engine or chase random workouts.",
     cta: "Select This Program",
-    image: "/images/omar-smile-bloc.jpg",
+    image: "/images/omar-body-recomp.jpg",
     price: PRICE,
     priceNote: PRICE_NOTE,
     suitable: [
