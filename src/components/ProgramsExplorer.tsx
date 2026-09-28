@@ -10,7 +10,6 @@ export function ProgramsExplorer() {
   const [days, setDays] = useState("all");
   const [location, setLocation] = useState("all");
   const [sport, setSport] = useState("all");
-  const [coaching, setCoaching] = useState("all");
 
   const list = useMemo(
     () =>
@@ -21,11 +20,9 @@ export function ProgramsExplorer() {
         if (days !== "all" && !p.filters.days.includes(days)) return false;
         if (location !== "all" && !p.filters.location.includes(location)) return false;
         if (sport !== "all" && !p.filters.sport.includes(sport)) return false;
-        if (coaching === "yes" && !p.filters.coaching) return false;
-        if (coaching === "no" && p.filters.coaching) return false;
         return true;
       }),
-    [goal, level, days, location, sport, coaching],
+    [goal, level, days, location, sport],
   );
 
   return (
@@ -72,11 +69,6 @@ export function ProgramsExplorer() {
           <option value="football">Football</option>
           <option value="general">General</option>
         </select>
-        <select value={coaching} onChange={(e) => setCoaching(e.target.value)} aria-label="Online coaching">
-          <option value="all">Online coaching availability</option>
-          <option value="yes">Coaching support included</option>
-          <option value="no">Plan-first</option>
-        </select>
       </div>
       <div className="grid-3 grid-programs">
         {list.map((p) => (
@@ -86,6 +78,7 @@ export function ProgramsExplorer() {
             </div>
             <h3>{p.shortName}</h3>
             <p>{p.description}</p>
+            <p className="silver">{p.price} / 12 weeks</p>
             <div className="program-meta">
               <div>
                 <span>Goal</span>
@@ -108,7 +101,7 @@ export function ProgramsExplorer() {
                 <b>{p.locations}</b>
               </div>
               <div>
-                <span>Coaching</span>
+                <span>Support</span>
                 <b>{p.coaching}</b>
               </div>
             </div>
@@ -117,13 +110,13 @@ export function ProgramsExplorer() {
                 View Program
               </Link>
               <Link className="btn btn-solid" href={`/start?program=${p.slug}`}>
-                Start This Program
+                Select Program
               </Link>
             </div>
           </article>
         ))}
       </div>
-      {list.length === 0 && <p className="notice">No programs match these filters. Clear a filter or use the quiz.</p>}
+      {list.length === 0 && <p className="notice">No programs match these filters. Clear a filter or use Find Your Program.</p>}
     </>
   );
 }

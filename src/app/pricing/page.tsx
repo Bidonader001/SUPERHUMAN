@@ -1,54 +1,71 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { site } from "@/lib/site";
+import { programs } from "@/lib/programs";
+import { site, whatsappHref } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Pricing" };
+export const metadata: Metadata = {
+  title: "Pricing",
+  description: "All Superhuman programs are EGP 5,000 for 12 weeks. One price. Choose the program that fits your goal.",
+};
 
 export default function PricingPage() {
   return (
     <section className="section">
       <div className="wrap">
         <p className="kicker">Investment</p>
-        <h1 className="metal">Pricing</h1>
-        <p>Final prices are placeholders until Omar confirms package inclusions and delivery method.</p>
-        <div className="grid-2">
-          <article className="card">
-            <h2>Standard Program</h2>
-            <p className="silver">{site.prices.standardLabel}</p>
-            <p className="muted">{site.prices.standardNote}</p>
-            <ul>
-              <li>Complete 12-week plan</li>
-              <li>Exercise demonstration links</li>
-              <li>Progression system</li>
-              <li>Mobile-friendly PDF</li>
-              <li>General support</li>
-            </ul>
-            <Link className="btn btn-solid" href="/start">
-              Choose Standard
-            </Link>
-          </article>
-          <article className="card">
-            <h2>Elite Online Coaching</h2>
-            <p className="silver">{site.prices.eliteLabel}</p>
-            <p className="muted">{site.prices.eliteNote}</p>
-            <ul>
-              <li>Fully individualized training</li>
-              <li>High-level performance programming</li>
-              <li>Direct coaching access</li>
-              <li>Training on the Superhuman application</li>
-              <li>Technique analysis</li>
-              <li>Competition preparation</li>
-              <li>Weekly adjustments</li>
-            </ul>
-            <div className="btn-row">
-              <Link className="btn" href="/coaching">
-                Choose Premium
-              </Link>
-              <Link className="btn btn-solid" href="/start?program=online-coaching">
-                Apply for Elite Coaching
-              </Link>
-            </div>
-          </article>
+        <h1 className="metal">One price. Every Superhuman program.</h1>
+        <p className="silver" style={{ fontSize: "2rem", margin: "0.4rem 0 0.6rem" }}>
+          {site.prices.label} / 12 weeks
+        </p>
+        <p>{site.prices.note}</p>
+        <p>
+          Superhuman is not two service tiers. You choose one program that matches your goal. Then you apply, get
+          approved, pay, and receive access.
+        </p>
+        <div className="btn-row" style={{ marginBottom: "2rem" }}>
+          <Link className="btn btn-solid" href="/quiz">
+            Find My Program
+          </Link>
+          <Link className="btn" href="/programs">
+            Explore Programs
+          </Link>
+          <a className="btn btn-ghost" href={whatsappHref()} target="_blank" rel="noreferrer">
+            Talk to Coach Omar
+          </a>
+        </div>
+
+        <h2>Program comparison</h2>
+        <div style={{ overflowX: "auto" }}>
+          <table>
+            <thead>
+              <tr>
+                <th>Program</th>
+                <th>Best for</th>
+                <th>Level</th>
+                <th>Days</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {programs.map((p) => (
+                <tr key={p.slug}>
+                  <td>
+                    <b>{p.shortName}</b>
+                  </td>
+                  <td>{p.goal}</td>
+                  <td>{p.level}</td>
+                  <td>{p.days}</td>
+                  <td>
+                    {p.price} / 12 weeks
+                  </td>
+                  <td>
+                    <Link href={`/programs/${p.slug}`}>Select program</Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

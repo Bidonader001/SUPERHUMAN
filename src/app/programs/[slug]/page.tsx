@@ -31,7 +31,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
           <p className="lead">{p.goal}</p>
           <div className="btn-row">
             <Link className="btn btn-solid" href={`/start?program=${p.slug}`}>
-              {p.cta}
+              Select Program
             </Link>
             <a className="btn" href={whatsappHref(`Hello Coach Omar, I want to start ${p.name}.`)} target="_blank" rel="noreferrer">
               Talk to Coach Omar
@@ -59,13 +59,13 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
                 <b>{p.locations}</b>
               </div>
               <div>
-                <span>Coaching</span>
+                <span>Support</span>
                 <b>{p.coaching}</b>
               </div>
             </div>
             <div className="card">
               <h3>Price</h3>
-              <p className="silver">{p.price}</p>
+              <p className="silver">{p.price} / 12 weeks</p>
               <p className="muted">{p.priceNote}</p>
               <p>
                 Pay through InstaPay to {site.instapayName} after you submit your application. Payments are verified
@@ -97,7 +97,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
         <div className="wrap">
           <h2 className="metal">What you receive</h2>
           <p className="muted">
-            Delivery method (application, PDF, email, or private coaching channel) is confirmed after payment
+            Delivery method (application, PDF, email, or private channel) is confirmed after payment
             verification. Results depend on consistency, effort, recovery, nutrition, starting level, and adherence.
           </p>
           <div className="grid-4">
@@ -158,8 +158,8 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
               Superhuman does not promise guaranteed outcomes. Individual results vary.
             </p>
             <p>
-              Beginner and advanced options, exercise-video support, and coaching-support level are confirmed on the
-              program page and during onboarding.
+              Beginner and advanced options and exercise-video support are confirmed on the program page and during
+              onboarding.
             </p>
           </div>
           <div>
@@ -171,7 +171,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
               </div>
             ))}
             <Link className="btn btn-solid" href={`/start?program=${p.slug}`}>
-              Start this program
+              Select this program
             </Link>
           </div>
         </div>

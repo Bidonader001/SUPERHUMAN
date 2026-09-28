@@ -11,8 +11,8 @@ export default function TermsPage() {
         <p>These terms govern use of the Superhuman Program website and the purchase of training services from {site.founder}.</p>
         <h2>Services</h2>
         <p>
-          Superhuman sells structured training programs and coaching. Delivery method is confirmed after payment
-          verification. Access is not granted until Omar or an authorized administrator confirms the transfer.
+          Superhuman sells 12-week performance programs at a single published price. Delivery method is confirmed after
+          payment verification. Access is not granted until Omar or an authorized administrator confirms the transfer.
         </p>
         <h2>Client responsibility</h2>
         <p>
@@ -26,7 +26,7 @@ export default function TermsPage() {
         </p>
         <h2>Refunds</h2>
         <p>
-          Digital program access and coaching time are generally non-refundable once delivered, except where required
+          Digital program access is generally non-refundable once delivered, except where required
           by applicable law or where Omar agrees in writing.
         </p>
         <h2>Intellectual property</h2>

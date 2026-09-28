@@ -1,3 +1,8 @@
+import { site } from "./site";
+
+const PRICE = site.prices.label;
+const PRICE_NOTE = site.prices.note;
+
 export type Program = {
   slug: string;
   name: string;
@@ -47,9 +52,9 @@ export const programs: Program[] = [
     description:
       "The flagship Superhuman system for athletes who refuse to choose between lifting and endurance. You build a complete engine: strength, speed, power, work capacity, and mobility.",
     cta: "Build Complete Performance",
-    image: "/images/omar-strength.jpg",
-    price: "EGP 5,000",
-    priceNote: "Placeholder price per 12 weeks until final package pricing is confirmed.",
+    image: "/images/omar-session-plate.jpg",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "Intermediate and advanced trainees",
       "Hybrid athletes",
@@ -127,10 +132,10 @@ export const programs: Program[] = [
     coaching: "Structured plan + coaching support",
     description:
       "A cleaner entry into the Superhuman method. You still train strength and endurance together, with calisthenics, running, core, and recovery built into a sustainable week.",
-    cta: "Build",
-    image: "/images/coaching-sprint.jpg",
-    price: "EGP 5,000",
-    priceNote: "Placeholder price per 12 weeks until final package pricing is confirmed.",
+    cta: "Start Lite Hybrid",
+    image: "/images/omar-plank-session.jpg",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "Beginner and intermediate trainees",
       "People who want to become strong and conditioned",
@@ -197,13 +202,13 @@ export const programs: Program[] = [
     level: "Intermediate",
     days: "5–6 days",
     locations: "Gym + HYROX stations + running",
-    coaching: "24/7 online assistance where included",
+    coaching: "Structured 12-week Superhuman program",
     description:
       "Race-specific hybrid preparation for first-time and returning HYROX athletes. Running development, station strength, pacing, and simulations are organized into one 12-week system.",
     cta: "Prepare for Your Next HYROX",
-    image: "/images/omar-coach-outdoor.jpg",
-    price: "EGP 5,000",
-    priceNote: "Placeholder price per 12 weeks until final package pricing is confirmed.",
+    image: "/images/omar-hyrox-run.jpg",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "First-time HYROX competitors",
       "Intermediate athletes",
@@ -236,7 +241,7 @@ export const programs: Program[] = [
       "Pacing strategy",
       "Mobility and recovery",
       "Exercise demonstrations",
-      "24/7 online coaching assistance, where included",
+      "Coaching support through the Superhuman process",
     ],
     equipment: [
       "Sled, SkiErg, rower, wall balls, sandbag, farmer handles — or close substitutions",
@@ -285,9 +290,9 @@ export const programs: Program[] = [
     description:
       "Build strict and weighted pull-ups, dips, muscle-ups, handstand push-ups, and pistol squats while developing sprint ability and 5K / 10K performance.",
     cta: "Run Fast. Move Strong.",
-    image: "/images/omar-night-fins.jpg",
-    price: "EGP 5,000",
-    priceNote: "Placeholder price per 12 weeks until final package pricing is confirmed.",
+    image: "/images/omar-run-mountains.jpg",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "Athletes who want advanced calisthenics skills",
       "Runners who need upper-body and lower-body strength",
@@ -360,8 +365,8 @@ export const programs: Program[] = [
       "A respectful, high-performance lower-body and complete-fitness system for women. The focus is strength, shape, and capability — never shame-based body messaging.",
     cta: "Build Your Strongest Body",
     image: "/images/omar-coach-smile.jpg",
-    price: "EGP 5,000",
-    priceNote: "Placeholder price per 12 weeks until final package pricing is confirmed.",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "Women seeking lower-body development and complete fitness",
       "Beginner and intermediate trainees",
@@ -434,9 +439,9 @@ export const programs: Program[] = [
     description:
       "Built from Omar’s international finswimming and open-water background. Options include pool swimming, open water, finswimming, distance swimming, and race preparation.",
     cta: "Own the Water",
-    image: "/images/omar-open-water.jpg",
-    price: "EGP 5,000",
-    priceNote: "Placeholder price per 12 weeks until final package pricing is confirmed.",
+    image: "/images/open-water-race.jpg",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "Pool swimmers",
       "Open-water competitors",
@@ -508,8 +513,8 @@ export const programs: Program[] = [
       "Dry-land strength for swimmers. Choose sprint-swimmer or distance-swimmer conditioning. The work is swimming-specific: power, core, shoulder health, and race preparation — not random bodybuilding.",
     cta: "Train for the Water",
     image: "/images/underwater.jpg",
-    price: "EGP 5,000",
-    priceNote: "Placeholder price per 12 weeks until final package pricing is confirmed.",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "Sprint swimmers",
       "Distance swimmers",
@@ -563,7 +568,7 @@ export const programs: Program[] = [
     name: "Customized Sport-Specific Strength and Conditioning",
     shortName: "Sport-Specific S&C",
     goal: "Train for your sport, not a generic gym template",
-    duration: "8–16 weeks",
+    duration: "12 weeks",
     level: "Athlete-dependent",
     days: "Based on competition calendar",
     locations: "Gym + sport venue",
@@ -571,9 +576,9 @@ export const programs: Program[] = [
     description:
       "Individualized S&C for swimmers, runners, finswimmers, combat athletes, football players, racket-sport athletes, open-water competitors, HYROX athletes, and other competitors.",
     cta: "Train for Your Sport",
-    image: "/images/pool-dive.jpg",
-    price: "Custom quote",
-    priceNote: "Priced after needs analysis. Placeholder until final sport-package pricing is confirmed.",
+    image: "/images/omar-first-place.jpg",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "Swimmers",
       "Runners",
@@ -626,11 +631,79 @@ export const programs: Program[] = [
     },
   },
   {
+    slug: "body-recomp",
+    name: "Superhuman Body Recomposition Program",
+    shortName: "Body Recomposition",
+    subtitle: "Fat loss · Muscle gain",
+    goal: "Lose fat and gain muscle in the same 12-week Superhuman block",
+    duration: "12 weeks",
+    level: "Beginner–Intermediate",
+    days: "4–5 days",
+    locations: "Gym",
+    coaching: "Structured 12-week Superhuman program",
+    description:
+      "A complete Superhuman system for changing how you look and perform: build muscle, drop fat, and keep strength. Training is organized so you do not starve your engine or chase random workouts.",
+    cta: "Select This Program",
+    image: "/images/omar-smile-bloc.jpg",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
+    suitable: [
+      "People who want fat loss without becoming weak",
+      "People who want muscle gain with a leaner look",
+      "Beginners and intermediates ready for a structured gym week",
+    ],
+    notFor: [
+      "Anyone seeking crash dieting or extreme restriction",
+      "Athletes who only want a swim or HYROX race plan",
+    ],
+    contents: [
+      "Progressive resistance training",
+      "Muscle-building volume for major muscle groups",
+      "Conditioning that supports fat loss without wrecking recovery",
+      "Core and mobility",
+      "Weekly progression rules",
+      "Exercise demonstration links",
+      "Readiness and intensity guidelines",
+      "Testing for strength and body-composition markers you can track",
+    ],
+    equipment: [
+      "A gym with barbell or dumbbells",
+      "Benches and a pull-up option",
+      "Optional cardio equipment or outdoor running",
+    ],
+    weekly: [
+      "3–4 strength sessions",
+      "1 conditioning or brisk aerobic session",
+      "Mobility built into the week",
+    ],
+    phases: [
+      { title: "Weeks 1–4 — Foundation", text: "Learn the lifts, set training rhythm, and start a repeatable week." },
+      { title: "Weeks 5–8 — Build", text: "Raise training quality and volume while keeping recovery honest." },
+      { title: "Weeks 9–12 — Compose", text: "Express strength and a tighter look with a clear finish." },
+    ],
+    adaptations: [
+      "More muscle-supporting training stimulus",
+      "Better work capacity for fat-loss support",
+      "A 12-week structure instead of random workouts",
+    ],
+    faqs: [
+      { q: "Is this a diet program?", a: "No. It is a Superhuman training program. Nutrition education stays within coaching scope; results still depend on food, sleep, and adherence." },
+    ],
+    filters: {
+      goal: ["fat-loss", "muscle"],
+      level: ["beginner", "intermediate"],
+      days: ["4", "5"],
+      location: ["gym"],
+      sport: ["general"],
+      coaching: true,
+    },
+  },
+  {
     slug: "custom",
     name: "Custom Personalized Program",
     shortName: "Custom Program",
     goal: "A plan built around your life, equipment, history, and goals",
-    duration: "Built to your timeline",
+    duration: "12 weeks",
     level: "All levels",
     days: "Designed to your schedule",
     locations: "Gym, home, pool, or mixed",
@@ -638,9 +711,9 @@ export const programs: Program[] = [
     description:
       "A fully individualized plan based on goals, level, schedule, equipment, training history, injuries, and performance requirements.",
     cta: "Build My Personal Plan",
-    image: "/images/omar-cycling.jpg",
-    price: "Custom quote",
-    priceNote: "Quoted after consultation. Placeholder until final custom-plan pricing is confirmed.",
+    image: "/images/omar-founder-medal.jpg",
+    price: PRICE,
+    priceNote: PRICE_NOTE,
     suitable: [
       "Clients with unique schedules or equipment",
       "Athletes with injuries or limitations who have medical clearance when needed",
@@ -676,7 +749,7 @@ export const programs: Program[] = [
       "Clear communication instead of a static PDF",
     ],
     faqs: [
-      { q: "Is this the same as online coaching?", a: "It can include coaching communication. Elite online coaching adds weekly check-ins, video feedback, and higher-touch adjustments." },
+      { q: "How is this different from the named Superhuman programs?", a: "The named programs follow a proven 12-week Superhuman system. Custom is still EGP 5,000 / 12 weeks, but the sessions are built around your schedule, equipment, and history." },
     ],
     filters: {
       goal: ["fat-loss", "muscle", "performance", "hybrid"],
@@ -700,6 +773,6 @@ export const receiveItems = [
   { title: "Progress tracker", text: "Log loads, times, and sessions." },
   { title: "Readiness guide", text: "Intensity decisions based on how you arrive to train." },
   { title: "Testing system", text: "Start and end measures so progress is visible." },
-  { title: "Coaching support", text: "Support level depends on the selected package." },
+  { title: "Coaching support", text: "Included with every Superhuman program through the application, approval, and onboarding process." },
   { title: "Mobile access", text: "Train from your phone through the selected delivery method." },
 ];

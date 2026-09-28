@@ -24,15 +24,15 @@ const faqs = [
   },
   {
     q: "Do you coach clients outside Egypt?",
-    a: "Yes. Online programs and coaching are available worldwide.",
+    a: "Yes. Superhuman programs are available worldwide.",
   },
   {
     q: "How will I receive my program?",
-    a: "After payment verification and onboarding, the program will be delivered through the selected digital platform, PDF system, application, email, or private coaching channel.",
+    a: "After payment verification and onboarding, your selected Superhuman program is delivered through the confirmed digital platform, PDF, email, or private channel.",
   },
   {
     q: "Are programs personalized?",
-    a: "Some programs follow a structured system, while personalized and online-coaching options are adjusted to the individual.",
+    a: "Named programs follow a proven Superhuman system. Custom Personalized is still EGP 5,000 / 12 weeks, built around your schedule and equipment after intake.",
   },
   {
     q: "Can I train with an injury?",
@@ -40,11 +40,15 @@ const faqs = [
   },
   {
     q: "Is nutrition included?",
-    a: "Nutrition support depends on the selected package and must stay within the coach’s professional qualifications and scope.",
+    a: "Nutrition education stays within the coach’s professional qualifications and scope. It is not a separate service tier.",
   },
   {
     q: "Are results guaranteed?",
     a: "No ethical coach can guarantee specific results. Progress depends on adherence, effort, recovery, nutrition, sleep, health, and starting level.",
+  },
+  {
+    q: "How much does Superhuman cost?",
+    a: "All Superhuman programs are EGP 5,000 for 12 weeks. Choose the program that fits your goal — there is one commercial model.",
   },
   {
     q: "How do I pay?",

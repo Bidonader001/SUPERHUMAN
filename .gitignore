@@ -9,3 +9,4 @@ data/uploads
 *.log
 .vercel
 WhatsApp Image*.jpeg
+.env*

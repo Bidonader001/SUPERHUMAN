@@ -5,15 +5,20 @@ import { Suspense, useState } from "react";
 import { postFormToFormSubmit } from "@/lib/formsubmit";
 
 function FormInner() {
-  const sent = useSearchParams().get("sent") === "1";
+  const already = useSearchParams().get("sent") === "1";
+  const [sent, setSent] = useState(already);
   const [status, setStatus] = useState("");
+  const [busy, setBusy] = useState(false);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setBusy(true);
     try {
       await postFormToFormSubmit(e.currentTarget, "Superhuman — Community signup");
+      setSent(true);
     } catch (err) {
       setStatus(err instanceof Error ? err.message : "Could not submit.");
+      setBusy(false);
     }
   }
 
@@ -36,8 +41,8 @@ function FormInner() {
         <input name="Main training goal" required />
       </label>
       {status && <p className="error">{status}</p>}
-      <button className="btn btn-solid" type="submit">
-        Join the Superhuman Community
+      <button className="btn btn-solid" type="submit" disabled={busy}>
+        {busy ? "Sending…" : "Join the Superhuman Community"}
       </button>
     </form>
   );

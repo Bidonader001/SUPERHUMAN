@@ -2,10 +2,11 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState } from "react";
-import { postFormToFormSubmit } from "@/lib/formsubmit";
+import { inboxList, postFormToFormSubmit } from "@/lib/formsubmit";
 
 function FormInner() {
-  const sent = useSearchParams().get("sent") === "1";
+  const already = useSearchParams().get("sent") === "1";
+  const [sent, setSent] = useState(already);
   const [status, setStatus] = useState("");
   const [busy, setBusy] = useState(false);
 
@@ -15,13 +16,14 @@ function FormInner() {
     setStatus("Sending…");
     try {
       await postFormToFormSubmit(e.currentTarget, "Superhuman — Contact message");
+      setSent(true);
     } catch (err) {
       setStatus(err instanceof Error ? err.message : "Could not submit.");
       setBusy(false);
     }
   }
 
-  if (sent) return <p className="ok">Message sent to bido.nader@gmail.com.</p>;
+  if (sent) return <p className="ok">Message sent to {inboxList().join(" and ")}.</p>;
 
   return (
     <form className="form" onSubmit={onSubmit}>
@@ -42,7 +44,6 @@ function FormInner() {
         <select name="Topic" required>
           <option value="">Select</option>
           <option>Choosing a program</option>
-          <option>Online coaching</option>
           <option>A race or event</option>
           <option>Payment / InstaPay</option>
           <option>Something else</option>

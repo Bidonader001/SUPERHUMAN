@@ -18,6 +18,17 @@ const audience = [
 
 const pillars = ["Strength", "Endurance", "Athleticism", "Discipline", "Longevity"];
 
+const journey = [
+  { n: "01", title: "Find My Program", href: "/quiz" },
+  { n: "02", title: "Program Details", href: "/programs" },
+  { n: "03", title: "Application", href: "/start" },
+  { n: "04", title: "Approval", href: "/start" },
+  { n: "05", title: "Payment", href: "/payment" },
+  { n: "06", title: "Verification", href: "/payment" },
+  { n: "07", title: "Onboarding", href: "/process" },
+  { n: "08", title: "Program Access", href: "/programs" },
+];
+
 export default function HomePage() {
   return (
     <>
@@ -34,6 +45,7 @@ export default function HomePage() {
             A complete performance system built to transform your strength, endurance, athletic ability, health,
             discipline, and confidence.
           </p>
+          <p className="silver">All Superhuman programs · {site.prices.label} / 12 weeks</p>
           <div className="chips">
             {["Hybrid", "Running", "Swimming", "HYROX", "Strength", "Sport"].map((x) => (
               <span className="chip" key={x}>
@@ -42,11 +54,11 @@ export default function HomePage() {
             ))}
           </div>
           <div className="btn-row">
-            <Link className="btn btn-solid" href="/start">
-              Start Your Program
+            <Link className="btn btn-solid" href="/quiz">
+              Find My Program
             </Link>
             <Link className="btn" href="/programs">
-              Explore the Programs
+              Explore Programs
             </Link>
             <a className="btn btn-ghost" href={whatsappHref()} target="_blank" rel="noreferrer">
               Talk to Coach Omar
@@ -63,11 +75,10 @@ export default function HomePage() {
             <p>
               Superhuman is a complete performance philosophy created for people who refuse to remain average. Every
               program combines intelligent training, structured progression, coaching support, accountability, and
-              real-world athletic development.
+              real-world athletic development — all under one price.
             </p>
             <p>
-              You are not joining another fitness plan. You are building the strongest, fittest, and most capable
-              version of yourself.
+              You are not choosing between service tiers. You are choosing which Superhuman program fits you.
             </p>
             <div className="pillars">
               {pillars.map((p) => (
@@ -76,7 +87,7 @@ export default function HomePage() {
             </div>
           </div>
           <div className="photo-frame tall">
-            <img className="photo" src="/images/omar-strength.jpg" alt="Omar Zoromba in a high-performance gym" />
+            <img className="photo" src="/images/omar-session-plate.jpg" alt="Omar Zoromba coaching a Superhuman strength session" />
             <span className="badge">Head Coach</span>
           </div>
         </div>
@@ -97,7 +108,7 @@ export default function HomePage() {
       <section className="section">
         <div className="wrap split">
           <div className="photo-frame tall">
-            <img className="photo" src="/images/omar-coach-outdoor.jpg" alt="Omar Zoromba wearing Superhuman apparel at an outdoor performance gym" />
+            <img className="photo" src="/images/omar-founder-medal.jpg" alt="Omar Zoromba after winning Oceanman as overall winner" />
           </div>
           <div>
             <p className="kicker">Founder</p>
@@ -116,7 +127,7 @@ export default function HomePage() {
                 Train With Omar
               </Link>
               <Link className="btn" href="/programs">
-                View Programs
+                Explore Programs
               </Link>
               <a className="btn btn-ghost" href={instagramHref(site.instagramPersonal)} target="_blank" rel="noreferrer">
                 Follow on Instagram
@@ -129,72 +140,84 @@ export default function HomePage() {
       <section className="section section-dark">
         <div className="wrap">
           <p className="kicker">Programs</p>
-          <h2>A system, not a PDF</h2>
+          <h2>All Superhuman programs · {site.prices.label} / 12 weeks</h2>
           <div className="grid-3">
-            {programs.slice(0, 6).map((p) => (
+            {programs.map((p) => (
               <article className="card" key={p.slug}>
                 <div className="photo-frame" style={{ minHeight: 220, marginBottom: "1.1rem" }}>
                   <img className="photo" src={p.image} alt="" />
                 </div>
                 <h3>{p.shortName}</h3>
                 <p>{p.duration} · {p.level}</p>
+                <p className="muted">{p.price} / 12 weeks</p>
                 <Link className="btn btn-ghost" href={`/programs/${p.slug}`}>
-                  View Program
+                  Select Program
                 </Link>
               </article>
             ))}
           </div>
           <div className="btn-row" style={{ marginTop: "1.5rem" }}>
-            <Link className="btn btn-solid" href="/programs">
-              Explore the System
+            <Link className="btn btn-solid" href="/quiz">
+              Find My Program
             </Link>
-            <Link className="btn" href="/quiz">
-              Find Your Program
+            <Link className="btn" href="/programs">
+              Explore Programs
             </Link>
           </div>
         </div>
       </section>
 
       <section className="section">
-        <div className="wrap split">
-          <div>
-            <p className="kicker">The Superhuman Process</p>
-            <h2>Assess. Build. Execute. Adapt. Evolve.</h2>
-            <p>
-              Joining Superhuman is entering a complete performance system. The process is the same whether you start
-              with a 12-week plan or elite online coaching.
-            </p>
+        <div className="wrap">
+          <p className="kicker">How joining works</p>
+          <h2>One path in</h2>
+          <p>
+            Homepage → Find My Program → Program Details → Application → Approval → Payment → Verification →
+            Onboarding → Program Access.
+          </p>
+          <div className="grid-4" style={{ marginTop: "1.4rem" }}>
+            {journey.map((s) => (
+              <Link className="card" href={s.href} key={s.n}>
+                <p className="muted">{s.n}</p>
+                <h3>{s.title}</h3>
+              </Link>
+            ))}
+          </div>
+          <div className="btn-row" style={{ marginTop: "1.5rem" }}>
             <Link className="btn" href="/process">
               See the full process
             </Link>
-          </div>
-          <div className="grid-2">
-            <div className="photo-frame"><img className="photo" src="/images/coaching-sprint.jpg" alt="Omar coaching a resisted sprint on turf" /></div>
-            <div className="photo-frame"><img className="photo" src="/images/discipline-fire.jpg" alt="Night training campfire — discipline and camaraderie" /></div>
-            <div className="photo-frame"><img className="photo" src="/images/pool-dive.jpg" alt="Competitive dive at dusk" /></div>
-            <div className="photo-frame"><img className="photo" src="/images/omar-open-water.jpg" alt="Omar finishing an open-water swim" /></div>
           </div>
         </div>
       </section>
 
       <section className="section section-dark">
-        <div className="wrap">
-          <p className="kicker">Start</p>
-          <h2>Begin your transformation</h2>
-          <p>
-            Submit your application, complete InstaPay, and wait for verification before access is granted. Superhuman
-            will never ask for your InstaPay password, OTP, card PIN, or banking login.
-          </p>
-          <div className="btn-row">
-            <Link className="btn btn-solid" href="/start">
-              Start Your Program
-            </Link>
-            <Link className="btn" href="/coaching">
-              Apply for Coaching
-            </Link>
-            <Link className="btn btn-ghost" href="/knowledge">
-              Join the Superhuman Community
-            </Link>
+        <div className="wrap split">
+          <div className="grid-2">
+            <div className="photo-frame"><img className="photo" src="/images/omar-plank-session.jpg" alt="Omar coaching a Superhuman gym session" /></div>
+            <div className="photo-frame"><img className="photo" src="/images/omar-hyrox-run.jpg" alt="Omar racing HYROX" /></div>
+            <div className="photo-frame"><img className="photo" src="/images/omar-pullup.jpg" alt="Omar performing a pull-up" /></div>
+            <div className="photo-frame"><img className="photo" src="/images/omar-first-place.jpg" alt="Omar on the Superhuman first-place podium" /></div>
+          </div>
+          <div>
+            <p className="kicker">Start</p>
+            <h2>Begin your transformation</h2>
+            <p>
+              Find the program that fits you, submit your application, complete InstaPay after approval, and wait for
+              verification before access is granted. Superhuman will never ask for your InstaPay password, OTP, card
+              PIN, or banking login.
+            </p>
+            <div className="btn-row">
+              <Link className="btn btn-solid" href="/quiz">
+                Find My Program
+              </Link>
+              <a className="btn" href={whatsappHref()} target="_blank" rel="noreferrer">
+                Talk to Coach Omar
+              </a>
+              <Link className="btn btn-ghost" href="/knowledge">
+                Join the Superhuman Community
+              </Link>
+            </div>
           </div>
         </div>
       </section>

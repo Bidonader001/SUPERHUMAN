@@ -18,16 +18,16 @@ export const metadata: Metadata = {
     template: "%s | Superhuman Program",
   },
   description:
-    "Elite hybrid training by Omar Zoromba. Strength, endurance, HYROX, swimming, calisthenics, and online coaching from New Cairo, Egypt — available worldwide.",
+    "12-week Superhuman performance programs by Omar Zoromba. Strength, endurance, HYROX, swimming, calisthenics, and sport-specific training from New Cairo, Egypt — available worldwide.",
   keywords: [
-    "Online fitness coach Egypt",
+    "Performance training program Egypt",
     "Hybrid training program Egypt",
     "HYROX coach Egypt",
     "HYROX training program",
     "Running coach Egypt",
     "Swimming strength coach",
     "Finswimming coach",
-    "Online personal trainer Egypt",
+    "12 week hybrid program Egypt",
     "Hybrid athlete program",
     "Calisthenics and running program",
     "Women’s glute training program",
@@ -71,7 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Oswald:wght@400;500;600&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@400;500;600;700&display=swap"
           rel="stylesheet"
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />

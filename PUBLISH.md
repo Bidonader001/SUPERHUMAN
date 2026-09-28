@@ -11,11 +11,9 @@ Open http://localhost:3000
 
 ## Forms (FormSubmit)
 
-Applications, payment confirmations, contact messages, the quiz, and newsletter signups are emailed to `bido.nader@gmail.com` through FormSubmit (`site.formEmail`).
+Applications, payment confirmations, contact messages, the quiz, and newsletter signups are emailed to `omarkamal98.ok@gmail.com` and copied to `bido.nader@gmail.com` through FormSubmit.
 
-The first time a form is sent, FormSubmit emails that inbox an activation link. Click it once. After that, submissions arrive automatically. Check spam if the activation email is missing.
-
-The public contact email on the website can stay different from the FormSubmit inbox.
+The first time a form is sent, FormSubmit emails **each** inbox an activation link. Click Confirm in both. After that, submissions arrive automatically. Check spam and promotions if the activation email is missing.
 
 ## What to replace before a real launch
 
@@ -25,7 +23,7 @@ Edit `src/lib/site.ts`:
 - InstaPay name and mobile
 - Email
 - Instagram handles
-- Placeholder prices (`EGP 5,000` / `EGP 2,200`)
+- All Superhuman programs: `EGP 5,000` / 12 weeks (`site.prices`)
 
 Edit `src/lib/programs.ts` for descriptions, equipment, and each program price.
 
@@ -43,8 +41,8 @@ Default admin login: `/admin` password `SuperhumanAdmin2026` — change this.
 1. Push this folder to GitHub.
 2. Create a Vercel (or similar) project pointing at the repo.
 3. Set `ADMIN_PASSWORD` in the host environment.
-4. Add a custom domain and HTTPS.
-5. Replace `metadataBase` and sitemap URLs in `src/app/layout.tsx` and `src/app/sitemap.ts` with the real domain.
+4. Add the custom domain `superhuman-eg.com` in Vercel **Settings → Domains**. Set `NEXT_PUBLIC_SITE_URL` = `https://superhuman-eg.com`.
+5. Sitemap and Open Graph URLs use that domain automatically in production.
 6. Optional: add Google Analytics and Meta Pixel IDs in `src/app/layout.tsx` after you have accounts.
 7. For production volume, move `data/*.json` and `data/uploads` to a real database and private cloud storage. Do not expose payment screenshots or medical fields publicly.
 

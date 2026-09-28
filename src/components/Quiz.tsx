@@ -12,6 +12,7 @@ const questions = [
     label: "What is your main goal?",
     options: [
       "Fat loss without getting weak",
+      "Body recomposition (fat loss + muscle gain)",
       "Muscle and athleticism",
       "HYROX / hybrid race",
       "Swimming / open water",
@@ -51,9 +52,9 @@ const questions = [
     options: ["No", "Yes — I need modifications"],
   },
   {
-    key: "Coaching style",
-    label: "Do you prefer a fixed plan or personalized coaching?",
-    options: ["Fixed 12-week plan", "Personalized plan", "Elite online coaching"],
+    key: "Program style",
+    label: "Do you want a named Superhuman program or a custom plan?",
+    options: ["A structured 12-week Superhuman program", "A custom personalized program", "Help me choose"],
   },
   { key: "Start date", label: "What is your preferred start date?", options: [] },
   { key: "email", label: "What is your email?", options: [] },
@@ -61,8 +62,7 @@ const questions = [
 ];
 
 function recommend(a: Record<string, string>) {
-  if (a["Coaching style"] === "Elite online coaching") return ["custom"];
-  if (a.Injuries?.includes("Yes") || a["Coaching style"] === "Personalized plan") return ["custom", "standard-hybrid"];
+  if (a.Injuries?.includes("Yes") || a["Program style"] === "A custom personalized program") return ["custom"];
   if (a.Competition === "HYROX" || a.Goal?.includes("HYROX") || a.Activities?.includes("HYROX")) return ["hyrox-101"];
   if (a.Goal?.includes("Swimming") || a.Competition?.includes("Swim") || a.Activities === "Swimming") {
     return ["swimming-open-water", "swimmer-strength"];
@@ -70,6 +70,7 @@ function recommend(a: Record<string, string>) {
   if (a.Goal?.includes("Ladies") || a.Activities?.includes("Lower-body")) return ["ladies-bta"];
   if (a.Activities?.includes("Calisthenics")) return ["calisthenics-running"];
   if (a.Goal?.includes("Sport") || a.Competition === "Other sport") return ["sport-specific"];
+  if (a.Goal?.includes("recomp") || a.Goal?.includes("Fat loss")) return ["body-recomp", "lite-hybrid"];
   if (a.Level === "Beginner") return ["lite-hybrid"];
   return ["standard-hybrid", "lite-hybrid"];
 }
@@ -79,6 +80,7 @@ export function Quiz() {
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
   const [busy, setBusy] = useState(false);
+  const [error, setError] = useState("");
   const q = questions[step];
   const done = step >= questions.length;
   const recs = useMemo(() => (done ? recommend(answers) : []), [done, answers]);
@@ -89,11 +91,13 @@ export function Quiz() {
     fd.set("Recommended programs", recs.join(", "));
     fd.set("email", answers.email || "");
     setBusy(true);
+    setError("");
     try {
       await sendFormSubmit(fd, "Superhuman — Program quiz");
       setSent(true);
-    } catch {
+    } catch (err) {
       setSent(false);
+      setError(err instanceof Error ? err.message : "Could not send. Try WhatsApp instead.");
     } finally {
       setBusy(false);
     }
@@ -168,7 +172,7 @@ export function Quiz() {
                     View program
                   </Link>
                   <Link className="btn btn-solid" href={`/start?program=${p.slug}`}>
-                    Start this program
+                    Select program
                   </Link>
                 </div>
               </div>
@@ -189,6 +193,7 @@ export function Quiz() {
               WhatsApp Coach Omar
             </a>
           </div>
+          {error && <p className="error">{error}</p>}
         </>
       )}
     </div>

@@ -4,7 +4,7 @@ import { ProgramsExplorer } from "@/components/ProgramsExplorer";
 export const metadata: Metadata = {
   title: "Training Programs",
   description:
-    "Hybrid performance, HYROX, calisthenics and running, Ladies BTA, swimming, sport-specific S&C, and custom Superhuman programs.",
+    "Hybrid performance, HYROX, calisthenics × running, Ladies BTA, swimming, body recomposition, sport-specific S&C, and custom Superhuman programs. All EGP 5,000 / 12 weeks.",
 };
 
 export default function ProgramsPage() {
@@ -14,8 +14,9 @@ export default function ProgramsPage() {
         <p className="kicker">The System</p>
         <h1 className="metal">Choose the mission</h1>
         <p>
-          Every program is a complete Superhuman block — not a random workout list. Filter by goal, level, days,
-          location, sport, and coaching. Prices shown are editable placeholders until Omar confirms final fees.
+          Every Superhuman program is a complete 12-week block — not a random workout list. All programs are EGP
+          5,000 / 12 weeks. Filter by goal, level, days, location, and sport. The only decision is which program fits
+          you.
         </p>
         <ProgramsExplorer />
       </div>

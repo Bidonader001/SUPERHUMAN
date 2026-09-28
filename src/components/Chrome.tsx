@@ -33,8 +33,8 @@ export function Header() {
               {item.label}
             </Link>
           ))}
-          <Link href="/start" className="btn">
-            Start Your Program
+          <Link href="/quiz" className="btn">
+            Find My Program
           </Link>
         </nav>
         <button className="menu-btn" type="button" onClick={() => setOpen((v) => !v)} aria-expanded={open}>
@@ -48,8 +48,8 @@ export function Header() {
             {item.label}
           </Link>
         ))}
-        <Link href="/start" className="btn btn-solid">
-          Start Your Program
+        <Link href="/quiz" className="btn btn-solid">
+          Find My Program
         </Link>
         </div>
       </div>
@@ -79,9 +79,9 @@ export function Footer() {
             <br />
             <Link href="/about">About Omar</Link>
             <br />
-            <Link href="/coaching">Online Coaching</Link>
+            <Link href="/quiz">Find Your Program</Link>
             <br />
-            <Link href="/start">Start Your Program</Link>
+            <Link href="/start">Apply</Link>
             <br />
             <Link href="/pricing">Pricing</Link>
             <br />

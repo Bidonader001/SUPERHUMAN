@@ -1,6 +1,9 @@
+export const productionSiteUrl = "https://superhuman-eg.com";
+
 export function siteUrl() {
   const raw =
     process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_ENV === "production" ? productionSiteUrl : "") ||
     process.env.VERCEL_PROJECT_PRODUCTION_URL ||
     process.env.VERCEL_URL ||
     "http://localhost:3000";

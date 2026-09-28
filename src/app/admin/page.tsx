@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { isAdmin } from "@/lib/auth";
 import { listApplications, listLeads, listPayments } from "@/lib/store";
+import { programs } from "@/lib/programs";
 import { site } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
@@ -17,7 +18,8 @@ export default async function AdminPage() {
         <p>
           Edit public copy, prices, and contact numbers in <code>src/lib/site.ts</code> and{" "}
           <code>src/lib/programs.ts</code>. Hide a program by setting <code>hidden: true</code>. This dashboard stores
-          applications, payments, and newsletter leads on the server.
+          applications, payments, and newsletter leads on the server. There is one commercial model: {site.prices.label}{" "}
+          / 12 weeks for every Superhuman program.
         </p>
 
         <div className="grid-3">
@@ -39,6 +41,34 @@ export default async function AdminPage() {
         <p>
           WhatsApp {site.whatsappDisplay} · InstaPay {site.instapayDisplay} · {site.email}
         </p>
+
+        <h2>Public Superhuman programs</h2>
+        <div style={{ overflowX: "auto" }}>
+          <table>
+            <thead>
+              <tr>
+                <th>Program</th>
+                <th>Slug</th>
+                <th>Price</th>
+                <th>Duration</th>
+                <th>Hidden</th>
+              </tr>
+            </thead>
+            <tbody>
+              {programs.map((p) => (
+                <tr key={p.slug}>
+                  <td>{p.shortName}</td>
+                  <td>{p.slug}</td>
+                  <td>
+                    {p.price} / 12 weeks
+                  </td>
+                  <td>{p.duration}</td>
+                  <td>{p.hidden ? "yes" : "no"}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
         <h2>Client applications</h2>
         <div style={{ overflowX: "auto" }}>

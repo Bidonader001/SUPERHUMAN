@@ -1,36 +1,52 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { site, whatsappHref } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "The Superhuman Process",
-  description: "Assess, build, execute, adapt, evolve — the Superhuman transformation process.",
+  description: "Find your program, apply, get approved, pay, and receive Superhuman access.",
 };
 
 const stages = [
   {
     n: "01",
-    title: "Assess",
-    text: "Understand the client’s goals, level, schedule, equipment, history, and limitations.",
+    title: "Find My Program",
+    text: "Use the quiz or explore the catalog. One price. Choose the Superhuman program that fits your goal.",
   },
   {
     n: "02",
-    title: "Build",
-    text: "Choose or create the appropriate training system.",
+    title: "Program Details",
+    text: "Read who it is for, weekly structure, equipment, and the 12-week phases.",
   },
   {
     n: "03",
-    title: "Execute",
-    text: "Follow structured sessions with clear intensity, volume, technique, and progression.",
+    title: "Application",
+    text: "Submit your Superhuman application so Omar can confirm the match.",
   },
   {
     n: "04",
-    title: "Adapt",
-    text: "Review performance, recovery, and consistency.",
+    title: "Approval",
+    text: "Omar reviews your answers and confirms the selected program.",
   },
   {
     n: "05",
-    title: "Evolve",
-    text: "Build a stronger, faster, fitter, more capable version of the client.",
+    title: "Payment",
+    text: `Transfer ${site.prices.label} for 12 weeks through InstaPay using the published account details.`,
+  },
+  {
+    n: "06",
+    title: "Verification",
+    text: "Send your payment confirmation. Access is granted only after funds are verified.",
+  },
+  {
+    n: "07",
+    title: "Onboarding",
+    text: "Receive start date, delivery method, and how to train the week.",
+  },
+  {
+    n: "08",
+    title: "Program Access",
+    text: "Execute the Superhuman system. Assess, build, execute, adapt, evolve.",
   },
 ];
 
@@ -52,13 +68,18 @@ export default function ProcessPage() {
               </div>
             ))}
           </div>
-          <Link className="btn btn-solid" href="/start">
-            Begin Your Transformation
-          </Link>
+          <div className="btn-row">
+            <Link className="btn btn-solid" href="/quiz">
+              Find My Program
+            </Link>
+            <a className="btn" href={whatsappHref()} target="_blank" rel="noreferrer">
+              Talk to Coach Omar
+            </a>
+          </div>
         </div>
         <div className="grid-2">
-          <div className="photo-frame tall"><img className="photo" src="/images/discipline-fire.jpg" alt="Discipline and shared hardship around a fire" /></div>
-          <div className="photo-frame tall"><img className="photo" src="/images/underwater.jpg" alt="Underwater dive — execute under pressure" /></div>
+          <div className="photo-frame tall"><img className="photo" src="/images/omar-plank-session.jpg" alt="Omar coaching Superhuman athletes" /></div>
+          <div className="photo-frame tall"><img className="photo" src="/images/omar-first-place.jpg" alt="Superhuman first-place podium" /></div>
         </div>
       </div>
     </section>

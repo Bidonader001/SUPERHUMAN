@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense, useRef, useState } from "react";
-import { postFormToFormSubmit } from "@/lib/formsubmit";
+import { inboxList, sendFormSubmit } from "@/lib/formsubmit";
 import { programs } from "@/lib/programs";
 import { whatsappHref } from "@/lib/site";
 
@@ -24,13 +24,14 @@ function validateCurrentStep(form: HTMLFormElement, step: number) {
   return "";
 }
 
-function Success() {
+function Success({ needsActivation }: { needsActivation?: boolean }) {
   return (
     <div className="card">
-      <p className="ok">Application sent to bido.nader@gmail.com.</p>
+      <p className="ok">Application sent to {inboxList().join(" and ")}.</p>
       <p>
-        The first time only, FormSubmit emails that inbox an activation link. Open it, click confirm, then later
-        submissions arrive automatically. Check spam if it is missing.
+        {needsActivation
+          ? "Open each inbox now and click the FormSubmit confirmation link. Until you confirm, later submissions will not arrive. Check spam and promotions."
+          : "Omar will review your answers and reply on WhatsApp or email after approval."}
       </p>
       <div className="btn-row">
         <a className="btn btn-solid" href="/payment">
@@ -57,6 +58,7 @@ function FormInner() {
   const [step, setStep] = useState(0);
   const [status, setStatus] = useState("");
   const [ok, setOk] = useState(alreadySent);
+  const [needsActivation, setNeedsActivation] = useState(false);
   const [busy, setBusy] = useState(false);
 
   function goNext() {
@@ -87,14 +89,16 @@ function FormInner() {
     setBusy(true);
     setStatus("Sending your application…");
     try {
-      await postFormToFormSubmit(form, "Superhuman — New program application");
+      const result = await sendFormSubmit(new FormData(form), "Superhuman — New program application");
+      setNeedsActivation(Boolean(result.needsActivation));
+      setOk(true);
     } catch (err) {
       setStatus(err instanceof Error ? err.message : "Could not send. Check your connection and try again.");
       setBusy(false);
     }
   }
 
-  if (ok) return <Success />;
+  if (ok) return <Success needsActivation={needsActivation} />;
 
   return (
     <form className="form apply-form" ref={formRef} onSubmit={onSubmit} noValidate>
@@ -156,6 +160,7 @@ function FormInner() {
             Primary goal
             <select name="Primary goal" required>
               <option value="">Select</option>
+              <option>Body recomposition — fat loss and muscle gain</option>
               <option>Fat loss without losing strength</option>
               <option>Build muscle and athletic performance</option>
               <option>Become a complete hybrid athlete</option>
@@ -164,7 +169,7 @@ function FormInner() {
               <option>Swim or open-water performance</option>
               <option>Ladies BTA — glutes, thighs, abs</option>
               <option>Sport-specific strength and conditioning</option>
-              <option>Fully personalized coaching</option>
+              <option>Custom personalized program</option>
             </select>
           </label>
           <label>
@@ -176,7 +181,6 @@ function FormInner() {
                   {p.shortName}
                 </option>
               ))}
-              <option value="Elite Online Coaching">Elite Online Coaching</option>
             </select>
           </label>
           <label className="span-2">
@@ -199,13 +203,12 @@ function FormInner() {
             <input name="Event name and date" />
           </label>
           <label className="span-2">
-            How do you want to work with Omar?
-            <select name="Coaching style" required>
+            How should we match you?
+            <select name="Program match" required>
               <option value="">Select</option>
-              <option>A structured 12-week program</option>
-              <option>A custom plan built around my life</option>
-              <option>Elite online coaching with weekly check-ins</option>
-              <option>Not sure yet</option>
+              <option>A named Superhuman program</option>
+              <option>A custom personalized program</option>
+              <option>Not sure yet — recommend one</option>
             </select>
           </label>
         </div>
