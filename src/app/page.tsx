@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Ticker } from "@/components/Chrome";
 import { HeroReel, PhotoMarquee } from "@/components/Motion";
+import { DietPlanBadge } from "@/components/DietPlanBadge";
 import { programs } from "@/lib/programs";
 import { instagramHref, site, whatsappHref } from "@/lib/site";
 
@@ -103,6 +104,7 @@ export default function HomePage() {
               <article className="card program-tile" key={p.slug}>
                 <div className="photo-frame" style={{ minHeight: 240, marginBottom: "1rem" }}>
                   <img className="photo" src={p.image} alt="" />
+                  <DietPlanBadge onPhoto />
                 </div>
                 <h3>{p.shortName}</h3>
                 <p className="muted">{p.level}</p>

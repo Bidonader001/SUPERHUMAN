@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { sendFormSubmit } from "@/lib/formsubmit";
+import { DietPlanBadge } from "@/components/DietPlanBadge";
 import { getProgram } from "@/lib/programs";
 import { whatsappHref } from "@/lib/site";
 
@@ -166,6 +167,7 @@ export function Quiz() {
             return (
               <div className="card" key={slug} style={{ marginBottom: "0.75rem" }}>
                 <h3>{p.name}</h3>
+                <DietPlanBadge />
                 <p>{p.description}</p>
                 <div className="btn-row">
                   <Link className="btn" href={`/programs/${p.slug}`}>

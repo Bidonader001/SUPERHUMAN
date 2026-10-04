@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { programs } from "@/lib/programs";
+import { DietPlanBadge } from "@/components/DietPlanBadge";
+import { dietPlanLine, programs } from "@/lib/programs";
 
 export function ProgramsExplorer() {
   const [goal, setGoal] = useState("all");
@@ -74,6 +75,7 @@ export function ProgramsExplorer() {
           <article className="card" key={p.slug}>
             <div className="photo-frame" style={{ minHeight: 190, marginBottom: "0.9rem" }}>
               <img className="photo" src={p.image} alt="" />
+              <DietPlanBadge onPhoto />
             </div>
             <h3>{p.shortName}</h3>
             <p>{p.description}</p>
@@ -102,6 +104,10 @@ export function ProgramsExplorer() {
               <div>
                 <span>Support</span>
                 <b>{p.coaching}</b>
+              </div>
+              <div>
+                <span>Nutrition</span>
+                <b>{dietPlanLine}</b>
               </div>
             </div>
             <div className="btn-row">

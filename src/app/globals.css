@@ -326,6 +326,51 @@ p { margin: 0 0 1.1rem; color: #b5b5b5; }
 }
 .audience-grid .card { min-height: 120px; }
 .program-tile .photo-frame { border: 0; }
+.diet-stamp,
+.diet-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+}
+.diet-stamp em,
+.diet-badge em {
+  flex: none;
+  font-style: normal;
+  background: #fff;
+  color: #000;
+  padding: 0.22rem 0.42rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+.diet-stamp span,
+.diet-badge span {
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+.diet-stamp {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 2;
+  max-width: calc(100% - 20px);
+  padding: 0.38rem 0.55rem 0.38rem 0.38rem;
+  background: rgba(0, 0, 0, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+}
+.diet-badge {
+  margin: 0.15rem 0 0.85rem;
+  padding: 0.4rem 0.65rem 0.4rem 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02));
+}
 
 body.menu-open .float,
 body.menu-open .cookie { display: none; }

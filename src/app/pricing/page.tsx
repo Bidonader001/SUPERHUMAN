@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { DietPlanBadge } from "@/components/DietPlanBadge";
 import { programs } from "@/lib/programs";
 import { site, whatsappHref } from "@/lib/site";
 
@@ -52,6 +53,7 @@ export default function PricingPage() {
                 <tr key={p.slug}>
                   <td>
                     <b>{p.shortName}</b>
+                    <DietPlanBadge />
                   </td>
                   <td>{p.goal}</td>
                   <td>{p.level}</td>

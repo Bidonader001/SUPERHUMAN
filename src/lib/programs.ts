@@ -3,6 +3,9 @@ import { site } from "./site";
 const PRICE = site.prices.label;
 const PRICE_NOTE = site.prices.note;
 
+export const dietPlanKicker = "Included";
+export const dietPlanLine = "Custom diet plan · built for your goal";
+
 export type Program = {
   slug: string;
   name: string;

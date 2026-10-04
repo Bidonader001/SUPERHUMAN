@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getProgram, programs, receiveItems } from "@/lib/programs";
+import { DietPlanBadge } from "@/components/DietPlanBadge";
+import { dietPlanLine, getProgram, programs, receiveItems } from "@/lib/programs";
 import { site, whatsappHref } from "@/lib/site";
 
 export function generateStaticParams() {
@@ -29,6 +30,7 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
           <p className="kicker">{p.subtitle ?? "Superhuman Program"}</p>
           <h1 className="metal">{p.name}</h1>
           <p className="lead">{p.goal}</p>
+          <DietPlanBadge />
           <div className="btn-row">
             <Link className="btn btn-solid" href={`/start?program=${p.slug}`}>
               Select Program
@@ -61,6 +63,10 @@ export default async function ProgramDetail({ params }: { params: Promise<{ slug
               <div>
                 <span>Support</span>
                 <b>{p.coaching}</b>
+              </div>
+              <div>
+                <span>Nutrition</span>
+                <b>{dietPlanLine}</b>
               </div>
             </div>
             <div className="card">
