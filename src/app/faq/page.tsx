@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: "Is nutrition included?",
-    a: "Nutrition education stays within the coach’s professional qualifications and scope. It is not a separate service tier.",
+    a: "Yes. You will receive a diet plan from Coach Omar Zoromba, customized for your goal, to help you lock in.",
   },
   {
     q: "Are results guaranteed?",

@@ -23,36 +23,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="nav">
-      <div className="wrap nav-inner">
-        <Link href="/" className="brand" aria-label="Superhuman home">
-          <strong>SUPERHUMAN</strong>
-          <span>BUILT FOR WAR</span>
-        </Link>
-        <nav className="nav-links" aria-label="Main">
-          {nav.map((item) => (
-            <Link key={item.href} href={item.href} className={pathname === item.href ? "active" : ""}>
-              {item.label}
-            </Link>
-          ))}
-          <Link href="/quiz" className="btn">
-            Find My Program
-          </Link>
-        </nav>
-        <button
-          className={`menu-btn ${open ? "is-open" : ""}`}
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          <span className="hamburger" aria-hidden="true">
-            <i />
-            <i />
-            <i />
-          </span>
-        </button>
-      </div>
+    <>
       <div className={`mobile-menu ${open ? "open" : ""}`} id="mobile-nav">
         <div className="wrap mobile-menu-inner">
           {nav.map((item) => (
@@ -70,7 +41,38 @@ export function Header() {
           </div>
         </div>
       </div>
-    </header>
+      <header className={`nav ${open ? "is-open" : ""}`}>
+        <div className="wrap nav-inner">
+          <Link href="/" className="brand" aria-label="Superhuman home">
+            <strong>SUPERHUMAN</strong>
+            <span>BUILT FOR WAR</span>
+          </Link>
+          <nav className="nav-links" aria-label="Main">
+            {nav.map((item) => (
+              <Link key={item.href} href={item.href} className={pathname === item.href ? "active" : ""}>
+                {item.label}
+              </Link>
+            ))}
+            <Link href="/quiz" className="btn">
+              Find My Program
+            </Link>
+          </nav>
+          <button
+            className={`menu-btn ${open ? "is-open" : ""}`}
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label={open ? "Close menu" : "Open menu"}
+          >
+            <span className="hamburger" aria-hidden="true">
+              <i />
+              <i />
+              <i />
+            </span>
+          </button>
+        </div>
+      </header>
+    </>
   );
 }
 

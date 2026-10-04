@@ -4,15 +4,6 @@ import { HeroReel, PhotoMarquee } from "@/components/Motion";
 import { programs } from "@/lib/programs";
 import { instagramHref, site, whatsappHref } from "@/lib/site";
 
-const audience = [
-  { t: "Fat loss", s: "Stay strong" },
-  { t: "Muscle", s: "Stay athletic" },
-  { t: "HYROX", s: "Race ready" },
-  { t: "Swimming", s: "Open water" },
-  { t: "Running", s: "Add strength" },
-  { t: "Women", s: "BTA + fitness" },
-];
-
 const pillars = ["Strength", "Endurance", "Athleticism", "Discipline", "Longevity"];
 
 const journey = [
@@ -75,21 +66,6 @@ export default function HomePage() {
           <div className="photo-frame tall ken">
             <img className="photo" src="/images/omar-head-coach.jpg" alt="Omar Zoromba, Superhuman head coach" />
             <span className="badge">Head Coach</span>
-          </div>
-        </div>
-      </section>
-
-      <section className="section section-dark">
-        <div className="wrap">
-          <p className="kicker">Who it is for</p>
-          <h2>Every level. Zero average.</h2>
-          <div className="grid-3 audience-grid">
-            {audience.map((item) => (
-              <article className="card" key={item.t}>
-                <h3>{item.t}</h3>
-                <p className="muted">{item.s}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>

@@ -31,8 +31,8 @@ export function ProgramsExplorer() {
         <select value={goal} onChange={(e) => setGoal(e.target.value)} aria-label="Goal">
           <option value="all">Goal</option>
           <option value="fat-loss">Fat loss</option>
-          <option value="muscle">Muscle</option>
-          <option value="performance">Performance</option>
+          <option value="muscle">Muscle gain</option>
+          <option value="performance">Performance enhancement training</option>
           <option value="hybrid">Hybrid</option>
           <option value="race">Race</option>
         </select>
@@ -60,12 +60,11 @@ export function ProgramsExplorer() {
         <select value={sport} onChange={(e) => setSport(e.target.value)} aria-label="Sport">
           <option value="all">Sport</option>
           <option value="hybrid">Hybrid</option>
-          <option value="hyrox">HYROX</option>
           <option value="running">Running</option>
           <option value="swimming">Swimming</option>
           <option value="calisthenics">Calisthenics</option>
           <option value="finswimming">Finswimming</option>
-          <option value="combat">Combat</option>
+          <option value="martial-arts">Martial arts</option>
           <option value="football">Football</option>
           <option value="general">General</option>
         </select>

@@ -3,12 +3,9 @@
 import { useEffect, useState } from "react";
 
 const heroFrames = [
-  { src: "/images/omar-head-coach.jpg", alt: "Omar Zoromba, Superhuman head coach" },
-  { src: "/images/omar-body-recomp.jpg", alt: "Omar in a Superhuman physique session" },
-  { src: "/images/omar-run-mountains.jpg", alt: "Omar running in the mountains" },
-  { src: "/images/omar-hyrox-run.jpg", alt: "Omar racing HYROX" },
-  { src: "/images/omar-pullup.jpg", alt: "Omar performing a pull-up" },
-  { src: "/images/omar-founder-medal.jpg", alt: "Omar after an open-water win" },
+  { src: "/images/omar-custom-plan.jpg", alt: "Omar coaching a Superhuman athlete" },
+  { src: "/images/omar-hero-clipboard.jpg", alt: "Omar writing a Superhuman training plan" },
+  { src: "/images/omar-hero-rooftop.jpg", alt: "Omar on the Superhuman rooftop" },
 ];
 
 export function HeroReel() {
@@ -34,13 +31,13 @@ export function HeroReel() {
 }
 
 const marquee = [
+  "/images/omar-custom-plan.jpg",
+  "/images/omar-hero-clipboard.jpg",
+  "/images/omar-hero-rooftop.jpg",
+  "/images/ladies-bta.jpg",
   "/images/omar-head-coach.jpg",
-  "/images/omar-body-recomp.jpg",
   "/images/omar-run-mountains.jpg",
   "/images/omar-hyrox-run.jpg",
-  "/images/omar-pullup.jpg",
-  "/images/omar-founder-medal.jpg",
-  "/images/omar-first-place.jpg",
 ];
 
 export function PhotoMarquee() {

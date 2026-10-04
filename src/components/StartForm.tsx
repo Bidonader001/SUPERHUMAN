@@ -202,15 +202,6 @@ function FormInner() {
             Event name and date (if any)
             <input name="Event name and date" />
           </label>
-          <label className="span-2">
-            How should we match you?
-            <select name="Program match" required>
-              <option value="">Select</option>
-              <option>A named Superhuman program</option>
-              <option>A custom personalized program</option>
-              <option>Not sure yet — recommend one</option>
-            </select>
-          </label>
         </div>
       </div>
 

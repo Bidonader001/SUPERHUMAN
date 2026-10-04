@@ -290,7 +290,7 @@ export const programs: Program[] = [
     description:
       "Build strict and weighted pull-ups, dips, muscle-ups, handstand push-ups, and pistol squats while developing sprint ability and 5K / 10K performance.",
     cta: "Run Fast. Move Strong.",
-    image: "/images/omar-body-recomp.jpg",
+    image: "/images/calisthenics-running.jpg",
     price: PRICE,
     priceNote: PRICE_NOTE,
     suitable: [
@@ -364,7 +364,7 @@ export const programs: Program[] = [
     description:
       "A respectful, high-performance lower-body and complete-fitness system for women. The focus is strength, shape, and capability — never shame-based body messaging.",
     cta: "Build Your Strongest Body",
-    image: "/images/omar-head-coach.jpg",
+    image: "/images/ladies-bta.jpg",
     price: PRICE,
     priceNote: PRICE_NOTE,
     suitable: [
@@ -626,7 +626,7 @@ export const programs: Program[] = [
       level: ["intermediate", "advanced"],
       days: ["3", "4", "5"],
       location: ["gym"],
-      sport: ["swimming", "running", "hyrox", "combat", "football", "other"],
+      sport: ["swimming", "running", "martial-arts", "football", "other"],
       coaching: true,
     },
   },
@@ -687,7 +687,7 @@ export const programs: Program[] = [
       "A 12-week structure instead of random workouts",
     ],
     faqs: [
-      { q: "Is this a diet program?", a: "No. It is a Superhuman training program. Nutrition education stays within coaching scope; results still depend on food, sleep, and adherence." },
+      { q: "Do I get a diet plan?", a: "Yes. You will receive a diet plan from Coach Omar Zoromba, customized for your goal, to help you lock in." },
     ],
     filters: {
       goal: ["fat-loss", "muscle"],
@@ -711,7 +711,7 @@ export const programs: Program[] = [
     description:
       "A fully individualized plan based on goals, level, schedule, equipment, training history, injuries, and performance requirements.",
     cta: "Build My Personal Plan",
-    image: "/images/omar-founder-medal.jpg",
+    image: "/images/omar-custom-plan.jpg",
     price: PRICE,
     priceNote: PRICE_NOTE,
     suitable: [
@@ -773,6 +773,7 @@ export const receiveItems = [
   { title: "Progress tracker", text: "Log loads, times, and sessions." },
   { title: "Readiness guide", text: "Intensity decisions based on how you arrive to train." },
   { title: "Testing system", text: "Start and end measures so progress is visible." },
+  { title: "Diet plan", text: "You will receive a diet plan from Coach Omar Zoromba, customized for your goal, to help you lock in." },
   { title: "Coaching support", text: "Included with every Superhuman program through the application, approval, and onboarding process." },
   { title: "Mobile access", text: "Train from your phone through the selected delivery method." },
 ];

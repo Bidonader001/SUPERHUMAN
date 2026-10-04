@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { StartForm } from "@/components/StartForm";
-import { inboxList } from "@/lib/formsubmit";
 
 export const metadata: Metadata = {
   title: "Start Your Program",
@@ -14,8 +13,9 @@ export default function StartPage() {
         <p className="kicker">Onboarding</p>
         <h1 className="metal">Start your program</h1>
         <p>
-          Four short steps. Your answers are emailed to {inboxList().join(" and ")}. After approval, continue to
-          InstaPay. Medical details stay private and are never shown on the website.
+          Four short steps. Choose your preferred Superhuman program. You will receive a diet plan from Coach Omar
+          Zoromba, customized for your goal, to help you lock in. After approval, continue to InstaPay. Medical details
+          stay private and are never shown on the website.
         </p>
         <StartForm />
       </div>
