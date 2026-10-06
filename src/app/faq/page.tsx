@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "Can women join Superhuman?",
-    a: "Yes. Superhuman offers general, hybrid, personalized, and women-focused programs, including the Ladies BTA Program.",
+    a: "Yes. Superhuman offers general, hybrid, personalized, and women-focused programs, including Women (butt, thighs, Abs).",
   },
   {
     q: "Do you coach clients outside Egypt?",

@@ -4,7 +4,7 @@ import { ProgramsExplorer } from "@/components/ProgramsExplorer";
 export const metadata: Metadata = {
   title: "Training Programs",
   description:
-    "Hybrid performance, HYROX, calisthenics × running, Ladies BTA, swimming, body recomposition, sport-specific S&C, and custom Superhuman programs. All EGP 5,000 / 12 weeks.",
+    "Hybrid performance, HYROX, calisthenics × running, Women (butt, thighs, Abs), swimming, body recomposition, sport-specific S&C, and custom Superhuman programs. All EGP 5,000 / 12 weeks.",
 };
 
 export default function ProgramsPage() {
