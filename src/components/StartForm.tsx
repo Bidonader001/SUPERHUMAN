@@ -167,7 +167,7 @@ function FormInner() {
               <option>Prepare for HYROX</option>
               <option>Run faster (5K / 10K / longer)</option>
               <option>Swim or open-water performance</option>
-              <option>Women (butt, thighs, Abs)</option>
+              <option>Ladies BTA — Women (butt, thighs, Abs)</option>
               <option>Sport-specific strength and conditioning</option>
               <option>Custom personalized program</option>
             </select>

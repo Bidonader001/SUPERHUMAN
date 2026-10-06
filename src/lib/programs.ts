@@ -355,9 +355,9 @@ export const programs: Program[] = [
   },
   {
     slug: "ladies-bta",
-    name: "Women (butt, thighs, Abs)",
-    shortName: "Women (butt, thighs, Abs)",
-    subtitle: "Ladies BTA",
+    name: "Ladies BTA",
+    shortName: "Ladies BTA",
+    subtitle: "Women (butt, thighs, Abs)",
     goal: "Women (butt, thighs, Abs)",
     duration: "12 weeks",
     level: "All levels by option",
@@ -365,7 +365,7 @@ export const programs: Program[] = [
     locations: "Gym + optional running",
     coaching: "Technique coaching and substitutions",
     description:
-      "A respectful, high-performance lower-body and complete fitness system for women. The focus is strength, shape, and capability.",
+      "Women (butt, thighs, Abs). A respectful, high-performance lower-body and complete fitness system for women. The focus is strength, shape, and capability.",
     cta: "Build Your Strongest Body",
     image: "/images/ladies-bta.jpg",
     price: PRICE,

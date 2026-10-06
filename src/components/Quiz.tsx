@@ -17,7 +17,7 @@ const questions = [
       "Muscle and athleticism",
       "HYROX / hybrid race",
       "Swimming / open water",
-      "Women (butt, thighs, Abs)",
+      "Ladies BTA — Women (butt, thighs, Abs)",
       "Sport-specific performance",
       "General complete fitness",
     ],
@@ -68,7 +68,7 @@ function recommend(a: Record<string, string>) {
   if (a.Goal?.includes("Swimming") || a.Competition?.includes("Swim") || a.Activities === "Swimming") {
     return ["swimming-open-water", "swimmer-strength"];
   }
-  if (a.Goal?.includes("Women") || a.Goal?.includes("butt") || a.Activities?.includes("Lower-body")) return ["ladies-bta"];
+  if (a.Goal?.includes("Ladies") || a.Goal?.includes("Women") || a.Goal?.includes("butt") || a.Activities?.includes("Lower-body")) return ["ladies-bta"];
   if (a.Activities?.includes("Calisthenics")) return ["calisthenics-running"];
   if (a.Goal?.includes("Sport") || a.Competition === "Other sport") return ["sport-specific"];
   if (a.Goal?.includes("recomp") || a.Goal?.includes("Fat loss")) return ["body-recomp", "lite-hybrid"];
